@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symptom Checker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="text-center mb-4">🩺 Smart Symptom Checker</h2>
+    <form id="symptomForm" class="border p-4 bg-white rounded shadow">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" class="form-control" id="name" required />
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" required />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptomInput">Describe your symptoms (comma separated):</label>
+        <textarea class="form-control" id="symptomInput" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">🧾 Generate Diagnosis</button>
+    </form>
+
+    <div id="report" class="mt-5 d-none bg-white p-4 border rounded shadow">
+      <h4 class="text-center">🩺 Medical Report</h4>
+      <hr />
+      <p><strong>Name:</strong> <span id="rName"></span></p>
+      <p><strong>Age:</strong> <span id="rAge"></span></p>
+      <p><strong>Gender:</strong> <span id="rGender"></span></p>
+      <p><strong>Symptoms:</strong> <span id="rSymptoms"></span></p>
+      <p><strong>Diagnosis:</strong> <span id="rDiagnosis"></span></p>
+
+      <h5 class="mt-4">Precautions:</h5>
+      <ul id="rPrecautions"></ul>
+
+      <h5 class="mt-4">Severity Score:</h5>
+      <div class="progress" style="height: 30px;">
+        <div id="severityBar" class="progress-bar" role="progressbar"
+          style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          0%
+        </div>
+      </div>
+
+      <!-- ✅ DOWNLOAD PDF BUTTON ADDED -->
+      <div class="text-center mt-4">
+        <button onclick="downloadPDF()" class="btn btn-danger">📥 Download Report (PDF)</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
